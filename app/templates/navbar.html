@@ -18,7 +18,20 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Business</a>
-            <a class="dropdown-item" href="#">job</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">school</a>
+            <div class="dropdown-divider">football</div>
+            <a class="dropdown-item" href="#"></a>
+
+            <ul class="nav navbar-nav navbar-right">
+              {% if current_user.is_authenticated %}
+              <li style="color:rgb(167, 107, 107);padding:15px;">{{current_user.username}}</li>
+              <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+              {% else %}
+              <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+              {%endif%}
+            </ul>
           </div>
+
+
+
+         
