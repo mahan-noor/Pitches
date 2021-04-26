@@ -1,4 +1,4 @@
-export SECRET_KEY =b'\x1dX\n=\xafU\xbd``\xe9\x04\x94\xaa$y\xfa\x8b\xcd'
+export SECRET_KEY ='6cce09d62500516652af3ee8f584e27e'
 
 
 python3.8 manage.py server
