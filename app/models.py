@@ -50,13 +50,13 @@ class Role(db.Model):
 
         
 
-# class Pitch(db.Model):
-#     __tablename__ = 'pitch'
+class Pitch(db.Model):
+    __tablename__ = 'pitch'
 
-#     id = db.Column(db.Integer,primary_key = True)
-#     name = db.Column(db.String(255))
-#     users = db.relationship('User',backref = 'pitches',lazy="dynamic")
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'pitch',lazy="dynamic")
 
 
-#     def __repr__(self):
-#         return f'User {self.name}'
+    def __repr__(self):
+        return f'User {self.name}'
