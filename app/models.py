@@ -1,6 +1,7 @@
 from . import db
 from flask_login import UserMixin
 from . import login_manager
+from werkzeug.security import generate_password_hash,check_password_hash
 
 
 @login_manager.user_loader
@@ -16,6 +17,8 @@ class User(UserMixin,db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     pitches = db.relationship('Pitch',backref = 'role',lazy="dynamic")
     comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
+    upvote = db.relationship('Upvote',backref = 'role',lazy="dynamic")
+    downvote = db.relationship('Downvotes',backref = 'role',lazy="dynamic")
     password_hash = db.Column(db.String(255))
 
 
@@ -59,6 +62,7 @@ class Pitch(db.Model):
     name = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
+    Downvote = db.relationship('Upvote',backref = 'role',lazy="dynamic")
   
     
 
@@ -93,5 +97,53 @@ class Comment(db.Model):
     
     def __repr__(self):
         return f'comment:{self.comment}'
+
+
+
+class Downvote(db.Model):
+    __tablename__ = 'downvotes'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'),nullable = False)
+
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_downvotes(cls,id):
+        comments = Downvote.query.filter_by(pitch_id=id).all()
+
+        return downvotes
+
+
+    def __repr__(self):
+        return f'{self.user_id}:{self.pitch_id}'
+
+
+
+
+class Downvote(db.Model):
+    __tablename__ = 'downvotes'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'),nullable = False)
+
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_downvotes(cls,id):
+        comments = Downvote.query.filter_by(pitch_id=pitch_id).all()
+
+        return downvotes
+
+
+    def __repr__(self):
+        return f'{self.user_id}:{self.pitch_id}'
+
 
 
