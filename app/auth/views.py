@@ -4,7 +4,7 @@ from .forms import RegistrationForm,LoginForm
 from .. import db
 from flask_login import login_user,logout_user,login_required
 from . import auth
-from flask_wtf.csrf import CSRFProtect, CSRFError
+
 
 
 @auth.route('/register',methods = ["GET","POST"])

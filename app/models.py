@@ -13,7 +13,9 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
-    role_id = db.Column(db.Integer,db.ForeignKey('role.id'))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    pitches = db.relationship('Pitch',backref = 'role',lazy="dynamic")
+    comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
     password_hash = db.Column(db.String(255))
 
 
@@ -51,11 +53,12 @@ class Role(db.Model):
         
 
 class Pitch(db.Model):
-    __tablename__ = 'pitch'
+    __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
   
     
 
@@ -90,4 +93,5 @@ class Comment(db.Model):
     
     def __repr__(self):
         return f'comment:{self.comment}'
+
 
