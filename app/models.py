@@ -100,8 +100,8 @@ class Comment(db.Model):
 
 
 
-class Downvote(db.Model):
-    __tablename__ = 'downvotes'
+class Upvote(db.Model):
+    __tablename__ = 'upvotes'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'),nullable = False)
@@ -112,8 +112,8 @@ class Downvote(db.Model):
         db.session.commit()
 
     @classmethod
-    def get_downvotes(cls,id):
-        comments = Downvote.query.filter_by(pitch_id=id).all()
+    def get_upvotes(cls,id):
+        comments = Upvote.query.filter_by(pitch_id=id).all()
 
         return downvotes
 
