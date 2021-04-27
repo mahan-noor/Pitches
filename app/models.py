@@ -55,8 +55,39 @@ class Pitch(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'pitch',lazy="dynamic")
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  
+    
 
 
+    def save_p(self):
+        db.session.add(self)
+        db.session.commit()
+
+        
     def __repr__(self):
-        return f'User {self.name}'
+        return f'Pitch {self.post}'
+
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.Text(),nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'),nullable = False)
+
+    def save_c(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comment.query.filter_by(pitch_id=pitch_id).all()
+
+        return comments
+
+    
+    def __repr__(self):
+        return f'comment:{self.comment}'
+
