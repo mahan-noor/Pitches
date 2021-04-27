@@ -7,9 +7,6 @@ from .. import db
 
 
 
-
-
-
 # Views
 
 @main.route('/')
