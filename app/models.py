@@ -20,7 +20,7 @@ class User(UserMixin,db.Model):
     pitches = db.relationship('Pitch',backref = 'role',lazy="dynamic")
     comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
     upvote = db.relationship('Upvote',backref = 'role',lazy="dynamic")
-    downvote = db.relationship('Downvotes',backref = 'role',lazy="dynamic")
+    downvote = db.relationship('Downvote',backref = 'role',lazy="dynamic")
     password_hash = db.Column(db.String(255))
 
 
@@ -61,10 +61,12 @@ class Pitch(db.Model):
     __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    comment = db.relationship('Comment',backref = 'role',lazy="dynamic")
-    Downvote = db.relationship('Upvote',backref = 'role',lazy="dynamic")
+    name = db.Column(db.String(255),index = True)
+    category = db.Column(db.String(255), index = True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable=False)
+    comment = db.relationship('Comment',backref = 'user',lazy="dynamic")
+    Downvote = db.relationship('Upvote',backref = 'user',lazy="dynamic")
+
   
     
 
