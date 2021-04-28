@@ -1,6 +1,14 @@
 
 {% extends 'base.html'%}
 {% block content %}
+
+<div class="jumbotron text-center">
+    <h1> Minute  <strong>Pitch...</strong> </h1>
+</div>
+
+
+
+
 <div class="container">
     <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
         <li class="nav-item">
@@ -19,5 +27,22 @@
                 Pitches</a>
         </li>
     </ul>
+
+    <div  class="tab-pane active" id="all"><br>
+        {{ macro.displayPitchList(pitches) }}
+    </div>
+    <div  class="tab-pane fade" id="product"><br>
+        {{ macro.displayPitchList(products) }}
+    </div>
+    <div  class="tab-pane fade" id="lyrics"><br>
+        {{ macro.displayPitchList(lyrics) }}
+    </div>
+    <div  class="tab-pane fade" id="pick-upline"><br>
+        {{ macro.displayPitchList(pickuplines) }}
+    </div>
+    <div  class="tab-pane fade" id="advertisement"><br>
+        <h1>Advertisement</h1>
+        {{ macro.displayPitchList(advert) }}
+    </div>
   
 {% endblock%}
