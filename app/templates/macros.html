@@ -2,10 +2,10 @@
 {% if pitches %}
 <div class="row tab-content">
     {% for pitch in pitches %}
-    <div class="card text-center tab-pane active" style="width: 18rem;" id="crd">
+    <div class="card text-center tab-pane active" style="width: 18rem;">
         <div class="card-body">
 
-            <p class="cart">{{ pitch.category}}</p>
+            <p class="card">{{ pitch.category}}</p>
             <h5 class="card-title">{{ pitch.title}}</h5>
             
             <p class="card-text">{{ pitch.post}}</p>

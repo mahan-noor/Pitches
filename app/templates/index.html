@@ -29,20 +29,17 @@
     </ul>
 
     <div  class="tab-pane active" id="all"><br>
-        {{ macro.displayPitchList(pitches) }}
+        {{ macros.displayPitchList() }}
     </div>
-    <div  class="tab-pane fade" id="product"><br>
-        {{ macro.displayPitchList(products) }}
+    <div  class="tab-pane fade" id="interview"><br>
+        {{ macros.displayPitchList(interview) }}
     </div>
-    <div  class="tab-pane fade" id="lyrics"><br>
-        {{ macro.displayPitchList(lyrics) }}
-    </div>
-    <div  class="tab-pane fade" id="pick-upline"><br>
-        {{ macro.displayPitchList(pickuplines) }}
+    <div  class="tab-pane fade" id="pickupline"><br>
+        {{ macros.displayPitchList(pickupline) }}
     </div>
     <div  class="tab-pane fade" id="advertisement"><br>
         <h1>Advertisement</h1>
-        {{ macro.displayPitchList(advert) }}
+        {{ macros.displayPitchList(advert) }}
     </div>
   
 {% endblock%}
