@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(201, 141, 141);
+    
+}
+.jumbotron {
+    background: transparent;
+    font-family: 'Jomolhari', serif;    
+}
+.jumbotron h1 {
+    font-size: 50px;
+
+}
+.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-text {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-weight: bolder;
+    color: #fff;
+    
+}
+

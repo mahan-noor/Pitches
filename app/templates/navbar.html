@@ -1,4 +1,63 @@
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark ">
+  <nav class="navbar sticky-top bg-dark">
+      <div class="container navbr">
+          <!-- <ul class="nav navbar-nav navbar-right">
+              {% if current_user.is_authenticated %}
+              <li style="color:white;padding:15px;">{{current_user.username}}</li>
+              <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+              {% else %}
+              <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+              {%endif%}
+          </ul> -->
+
+          <div>
+              <a class="nav-text-add" href="/create_new"> add new pitch</a>
+          </div>
+          <div>
+              <a class="nav-text" href="/">Home</a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+              
+              {% if current_user.is_authenticated %}
+              <li><a href="{{url_for('main.profile',uname=current_user.username)}}" class="lgn">Profile</a></li>
+              <li><a href="{{url_for('auth.logout')}}" class="lgn">Sign out</a></li>
+              {% else %}
+              <li><a href="{{url_for('auth.login')}}" class="lgn">Sign in</a></li>
+              {%endif%}
+          </ul>
+
+
+      </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+      <h1>pitch | <strong>Space...</strong> </h1>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nav class="mb-1 navbar navbar-expand-lg navbar-dark ">
   <a class="navbar-brand" href="{{url_for('main.index')}}"><strong>Pich-World</strong> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -6,7 +65,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('main.index')}}">All Pitches</a>
+                <a class="nav-link" href="{{url_for('main.index')}}">Home</a>
               </li>
               {% if current_user.is_authenticated %}
               <li class="nav-item">
@@ -38,7 +97,7 @@
       </ul>
   </div>
 </nav>
-  
+   -->
 
   
 

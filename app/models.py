@@ -61,7 +61,7 @@ class Pitch(db.Model):
     __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255),index = True)
+    title = db.Column(db.String(255),nullable= False)
     post = db.Column(db.String(255))
     category = db.Column(db.String(255), index = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable=False)
