@@ -15,8 +15,8 @@ def index():
     product = Pitch.query.filter_by(category = 'product').all() 
     sales = Pitch.query.filter_by(category = 'sales').all()
     personal = Pitch.query.filter_by(category = 'personal').all()
-    pickupline = Pitch.query.filter_by(category = 'pickuoline').all()
-    return render_template('index.html', product = product,sales = sales, pitches = pitches,personal= personal)
+    pickupline = Pitch.query.filter_by(category = 'pickupline').all()
+    return render_template('index.html', product = product,sales = sales, pitches = pitches,personal= personal ,pickupline=pickupline)
 
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required

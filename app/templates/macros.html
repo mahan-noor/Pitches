@@ -3,7 +3,7 @@
 {% if pitches %}
 <div class="row tab-content">
     {% for pitch in pitches %}
-    <div class="card text-center tab-pane active" style="width: 25rem; background-color:rgb(97, 94, 89); margin-bottom: 2rem; margin-right: 3rem;">
+    <div class="card text-center tab-pane active" style="width: 25rem; background-color:rgb(97, 94, 89); margin-bottom: 2rem; margin-right: 3rem; font-size: 18px;">
         <div class="card-body">
             <p class="card">{{ pitch.category}}</p>
             <h5 class="card-title " style="font-size: 20px;">{{ pitch.title}}</h5>
@@ -11,7 +11,8 @@
             <p class="card-text">{{ pitch.post}}</p>
             <p class="posted-at"> <em>posted at: {{pitch.time}}</em></p>
             <a href="#" class="btn btn-outline-info btn-block">Comment</a>
-            <a href="#" class="btn">upvote</a>
+            <a href="#" class="foot"><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i>upvote</a>
+            <a href="#" class="foot"><i class="fa fa-thumbs-down" style="color:red;"></i>downvote</a>
         </div>
     </div>
     {% endfor %}
