@@ -15,6 +15,7 @@ def index():
     product = Pitch.query.filter_by(category = 'product').all() 
     sales = Pitch.query.filter_by(category = 'sales').all()
     personal = Pitch.query.filter_by(category = 'personal').all()
+    pickupline = Pitch.query.filter_by(category = 'pickuoline').all()
     return render_template('index.html', product = product,sales = sales, pitches = pitches,personal= personal)
 
 @main.route('/create_new', methods = ['POST','GET'])
@@ -27,10 +28,10 @@ def new_pitch():
         category = form.category.data
         user_id = current_user
         new_pitch_object = Pitch(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
-        new_pitch_object.save_p()
+        new_pitch_object.save_pitch()
         return redirect(url_for('main.index'))
         
-    return render_template('new_pitch.html', form = form)
+    return render_template('new_pitch.html', pitch_form = form)
 
 @main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
 @login_required

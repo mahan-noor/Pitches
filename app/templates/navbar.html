@@ -1,28 +1,19 @@
-  <nav class="navbar sticky-top bg-dark">
+  <nav class="navbar sticky-top " style="background: rgb(102, 100, 98);">
       <div class="container navbr">
-          <!-- <ul class="nav navbar-nav navbar-right">
-              {% if current_user.is_authenticated %}
-              <li style="color:white;padding:15px;">{{current_user.username}}</li>
-              <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-              {% else %}
-              <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-              {%endif%}
-          </ul> -->
 
-          <div>
-              <a class="nav-text-add" href="/create_new"> add new pitch</a>
-          </div>
-          <div>
-              <a class="nav-text" href="/">Home</a>
-          </div>
+             
+              <a class="nav-text-add" href="/create_new"><i class="fa fa-comment" aria-hidden="true"></i>&nbsp; add new pitch</a>
+             
+              <a class="nav-link" href="{{url_for('main.index')}}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp; Home</a>
+              
 
           <ul class="nav navbar-nav navbar-right">
               
               {% if current_user.is_authenticated %}
-              <li><a href="{{url_for('main.profile',uname=current_user.username)}}" class="lgn">Profile</a></li>
-              <li><a href="{{url_for('auth.logout')}}" class="lgn">Sign out</a></li>
+              <li><a  href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a></li>
+              <li><a href="{{url_for('auth.logout')}}" class="lgn"><i class="fas fa-sign-out-alt"></i>&nbsp; Sign out</a></li>
               {% else %}
-              <li><a href="{{url_for('auth.login')}}" class="lgn">Sign in</a></li>
+              <li><a href="{{url_for('auth.login')}}" class="lgn"><i class="fas fa-sign-in-alt"></i>&nbsp; Sign in</a></li>
               {%endif%}
           </ul>
 
@@ -30,8 +21,8 @@
       </div>
   </nav>
 
-  <div class="jumbotron text-center">
-      <h1>pitch | <strong>Space...</strong> </h1>
+  <div class="jumbotron text-center " style="background: transparent; font-weight: 50px;">
+      <h1>minute| <strong>Pitch..</strong> </h1>
 
 
   </div>

@@ -1,4 +1,4 @@
-from flask import render_template,redirect,url_for,flash
+from flask import render_template,redirect,url_for,flash,request
 from ..models import User
 from .forms import RegistrationForm,LoginForm
 from .. import db
@@ -16,7 +16,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to Pitches","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Pitches","email/welcome_user",user.email,user=user)
 
         return redirect(url_for('auth.login'))
         title = "New Account"
