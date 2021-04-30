@@ -3,7 +3,7 @@
 
 {% block content %}
     
-        <div  class="container" id="particles-js">
+        <div  class="container" id="particles-js" style="box-sizing: content-box;">
             <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
                 <li class="nav-item" >
                     <a id ="cats" class="nav-link" data-toggle="tab" href="#all"><strong>All Pitches</strong> </a>
@@ -23,7 +23,7 @@
             </ul>
         </div>
 
-        <div class="tab-content">
+        <div class="tab-content" style="box-sizing: border-box;">
           <div  class="tab-pane active" id="all"><br>
               {{ macro.displayPitchList(pitches) }}
           </div>
